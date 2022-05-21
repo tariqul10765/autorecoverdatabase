@@ -16,7 +16,7 @@ Using mongorestore - without any args:
   will try to restore every database from "dump" folder in current directory, if "dump" folder does not exist then it will simply fail.
 */
 
-const DB_NAME = 'private_chat';
+const DB_NAME = 'famouslive';
 const ARCHIVE_PATH = path.join(__dirname, 'public', `${DB_NAME}.gzip`); //mongorestore --db=private_chat --archive=./public/private_chat.gzip --gzip
 
 // 1. Cron expression for every 5 seconds - */5 * * * * *
@@ -24,7 +24,7 @@ const ARCHIVE_PATH = path.join(__dirname, 'public', `${DB_NAME}.gzip`); //mongor
 // Note: 2nd expression only contains 5 fields, since seconds is not necessary
 
 // Scheduling the backup every 5 seconds (using node-cron)
-cron.schedule('*/2 * * * *', () => backupMongoDB());
+cron.schedule('*/1 * * * *', () => backupMongoDB());
 
 function backupMongoDB() {
   const child = spawn('mongodump', [
