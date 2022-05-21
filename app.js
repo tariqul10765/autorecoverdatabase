@@ -24,14 +24,13 @@ const ARCHIVE_PATH = path.join(__dirname, 'public', `${DB_NAME}2.gzip`); //mongo
 // Note: 2nd expression only contains 5 fields, since seconds is not necessary
 
 // Scheduling the backup every 5 seconds (using node-cron)
-cron.schedule('*/1 * * * *', () => backupMongoDB());
+cron.schedule('*/10 * * * * *', () => backupMongoDB());
 
 function backupMongoDB() {
-  const child = spawn('mongodump', [
-    `--db=${DB_NAME}`,
-    `--archive=${ARCHIVE_PATH}`,
-    '--gzip',
-  ]);
+const child = spawn('mongodump', [
+    `--db`,
+    `${DB_NAME}`
+  ]);  
   // console.log(child);
 
   child.stdout.on('data', (data) => {
