@@ -1,6 +1,9 @@
 const { spawn } = require('child_process');
 const path = require('path');
 const cron = require('node-cron');
+const express = require('express')
+
+const app = express()
 
 /* 
 Basic mongo dump and restore commands, they contain more options you can have a look at man page for both of them.
@@ -50,3 +53,7 @@ function backupMongoDB() {
     else console.log('Backup is successfull ✅');
   });
 }
+
+const port = 3000;
+app.listen(port, () => console.log(`Server is running at port:${port}`));
+
