@@ -17,7 +17,7 @@ Using mongorestore - without any args:
 */
 
 const DB_NAME = 'famouslive';
-const ARCHIVE_PATH = path.join(__dirname, 'public', `${DB_NAME}.gzip`); //mongorestore --db=private_chat --archive=./public/private_chat.gzip --gzip
+const ARCHIVE_PATH = path.join(__dirname, 'public', `${DB_NAME}2.gzip`); //mongorestore --db=private_chat --archive=./public/private_chat.gzip --gzip
 
 // 1. Cron expression for every 5 seconds - */5 * * * * *
 // 2. Cron expression for every night at 00:00 hours (0 0 * * * )
